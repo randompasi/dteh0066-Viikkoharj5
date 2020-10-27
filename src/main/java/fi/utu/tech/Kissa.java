@@ -6,13 +6,7 @@ public class Kissa extends Eläin {
     }
 
     // rumaa toistoa
-    @Override
-    public void perustaPerhe(Eläin toinen) {
-        if (toinen instanceof Kissa)
-            ääntele("löysin kumppanin eläimestä " + toinen);
-        else
-            super.perustaPerhe(toinen);
-    }
+
 
     public void mau() {
         ääntele("mau");
@@ -28,7 +22,9 @@ public class Kissa extends Eläin {
     }
 
     @Override
-    public int compareTo(Eläin o) {
+    public int compareTo(Object o) {
         return this.toString().compareTo(o.toString());
     }
+
+
 }

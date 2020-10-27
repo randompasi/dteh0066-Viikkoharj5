@@ -1,8 +1,13 @@
-package fi.utu.tech;
+package fi.utu.tech.Assignment1;
+
+import fi.utu.tech.Eläin;
 
 import java.util.*;
+import java.util.function.IntFunction;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public class Eläinjoukko<E> extends AbstractCollection<E>  implements  Collection<E> {
+public class Eläinjoukko<E> extends AbstractCollection<E> implements Collection<E> {
 
     private transient HashMap<E,Object> map;
     private static final Object PRESENT = new Object();
@@ -32,6 +37,10 @@ public class Eläinjoukko<E> extends AbstractCollection<E>  implements  Collecti
         return map.keySet().iterator();
     }
 
+    @Override
+    public <T> T[] toArray(IntFunction<T[]> generator) {
+        return null;
+    }
 
 
     @Override
@@ -57,6 +66,21 @@ public class Eläinjoukko<E> extends AbstractCollection<E>  implements  Collecti
         map.clear();
     }
 
+    @Override
+    public Spliterator<E> spliterator() {
+        return null;
+    }
+
+    @Override
+    public Stream<E> stream() {
+        return null;
+    }
+
+    @Override
+    public Stream<E> parallelStream() {
+        return null;
+    }
+
 
     @Override
     public boolean removeAll(Collection<?> c) {
@@ -75,6 +99,11 @@ public class Eläinjoukko<E> extends AbstractCollection<E>  implements  Collecti
             }
         }
         return modified;
+    }
+
+    @Override
+    public boolean removeIf(Predicate<? super E> filter) {
+        return false;
     }
 
     @Override
@@ -125,6 +154,8 @@ public class Eläinjoukko<E> extends AbstractCollection<E>  implements  Collecti
             sb.append(',').append("\n");
         }
     }
+
+
 
 
 }

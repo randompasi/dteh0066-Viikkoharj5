@@ -1,7 +1,14 @@
 package fi.utu.tech;
 
+import fi.utu.tech.Assignment1.Eläinjoukko;
+import fi.utu.tech.Assignment1.JärjestettyEläinjoukko;
+
 import java.util.Collection;
-import java.util.HashSet;
+
+
+/**
+ * holds all the example for assignments
+ */
 
 public class Main {
     public static void main(String[] args) {
@@ -33,8 +40,34 @@ public class Main {
             System.out.println(eläin);
         }
         assignmentLine(2);
-tervehdi(eläinjoukko);
-tervehdi(järjestettyEläinJoukko);
+        tervehdi(eläinjoukko);
+            tervehdi(järjestettyEläinJoukko);
+        var eläinjoukkoKoira = new Eläinjoukko<Koira>();
+        Eläin<Koira> koira = new Koira("Musti", 1);
+           var koira2 = new Koira("Andy", 10);
+        var koira3 = new Koira("Max", 8);
+        eläinjoukkoKoira.add(koira2);
+        eläinjoukkoKoira.add(koira3);
+
+        var eläinjoukkoKissa = new Eläinjoukko<Kissa>();
+        var kissa = new Kissa("Musti", 1);
+        var kissa2 = new Kissa("Andy", 10);
+        var kissa3 = new Kissa("Max", 8);
+        eläinjoukkoKissa.add(kissa);
+        eläinjoukkoKissa.add(kissa2);
+        eläinjoukkoKissa.add(kissa3);
+
+        nouto(eläinjoukkoKoira);
+        tervehdi(eläinjoukkoKoira);
+        tervehdi(eläinjoukkoKissa);
+
+koira.perustaPerhe(koira2);
+koira.perustaPerhe(kissa);// java: incompatible types: fi.utu.tech.Kissa cannot be converted to fi.utu.tech.Koira is the error when try to use wrong kind of variable
+
+
+        assignmentLine(3);
+
+
 
     }
 
@@ -43,8 +76,14 @@ tervehdi(järjestettyEläinJoukko);
         System.out.println("---------------------------Assignment "+ number +"-----------------------------");
     }
 
-    private static void  tervehdi(Collection<Eläin> animals) {
+    private static <E> void  tervehdi(Collection<? extends Eläin> animals) {
         animals.forEach(it->it.tervehdi());
+
+    }
+
+    private static void  nouto(Collection<Koira> animals) {
+        Keppi keppi = new Keppi();
+        animals.forEach(it->it.nouda(keppi));
     }
 
 

@@ -1,4 +1,6 @@
-package fi.utu.tech;
+package fi.utu.tech.Assignment1;
+
+import fi.utu.tech.Eläin;
 
 import java.util.*;
 

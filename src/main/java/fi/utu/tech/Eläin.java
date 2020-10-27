@@ -1,6 +1,6 @@
 package fi.utu.tech;
 
-public abstract class Eläin implements Comparable<Eläin> {
+public abstract class Eläin<E> implements Comparable<Eläin> {
     private final String nimi;
     private final String laji;
     private final int ikä;
@@ -16,9 +16,11 @@ public abstract class Eläin implements Comparable<Eläin> {
 
     }
 
-    public void perustaPerhe(Eläin toinen) {
-        throw new Error("Ei samaa lajia");
+    public void  perustaPerhe(E toinen) {
+        ääntele("löysin kumppanin eläimestä " + toinen);
     }
+
+
 
     public abstract void tervehdi();
 
