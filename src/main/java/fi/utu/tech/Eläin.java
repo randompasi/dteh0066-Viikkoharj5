@@ -1,6 +1,6 @@
 package fi.utu.tech;
 
-public abstract class Eläin {
+public abstract class Eläin implements Comparable<Eläin> {
     private final String nimi;
     private final String laji;
     private final int ikä;

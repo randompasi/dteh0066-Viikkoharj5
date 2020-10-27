@@ -26,4 +26,9 @@ public class Koira extends Eläin {
     public void tervehdi() {
         hau();
     }
+
+    @Override
+    public int compareTo(Eläin o) {
+        return this.toString().compareTo(o.toString());
+    }
 }

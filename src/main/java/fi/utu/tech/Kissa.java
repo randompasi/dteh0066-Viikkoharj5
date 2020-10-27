@@ -26,4 +26,9 @@ public class Kissa extends Eläin {
     public void tervehdi() {
         mau();
     }
+
+    @Override
+    public int compareTo(Eläin o) {
+        return this.toString().compareTo(o.toString());
+    }
 }
